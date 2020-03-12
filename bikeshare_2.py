@@ -55,7 +55,7 @@ def load_data(city, month, day):
     df['End Time'] = pd.to_datetime(df['End Time'])
     df['month'] = df['Start Time'].dt.month_name()
     df['day'] = df['Start Time'].dt.weekday_name
-    if month != 'All':
+    if month != 'All': # Focus on filter effect
        df = df[df['month'] == month]
     if day != 'All':
        df = df[df['day'] == day]
