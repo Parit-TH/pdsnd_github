@@ -19,17 +19,17 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    city = input ('Which city do you prefer to look in Chicago,New York City,Washington:' ).lower()
+    city = input ('Which city do you prefer to look in Chicago,New York City,Washington:' ).lower()# Config the input format
     while city not in CITY_DATA:
         print("The City's name is incorrect.")
         city = input('Please choose one of city in Chicago,New York City ,Washington: ')
-        
+
 
     # get user input for month (all, january, february, ... , june)
     month = input ('Which month do you prefer to look in from january to june <if you prefer all of jan to jun type "all">: ').title()
     while month not in Month:
         print ("The Month's name is incorrect.")
-        month = input('Plesae type month you prefer to look in: ').title()
+        month = input('Plesae type month you prefer to look in: ').title() # Must use .title because .dt format
     # get user input for day of week (all, monday, tuesday, ... sunday)
     day = input ('Which day do you prefer to look  <if you prefer all type "all">: ').title()
     while day not in Day:
@@ -55,8 +55,8 @@ def load_data(city, month, day):
     df['End Time'] = pd.to_datetime(df['End Time'])
     df['month'] = df['Start Time'].dt.month_name()
     df['day'] = df['Start Time'].dt.weekday_name
-    if month != 'All':
-       df = df[df['month'] == month] 
+    if month != 'All': # Focus on filter effect
+       df = df[df['month'] == month]
     if day != 'All':
        df = df[df['day'] == day]
     #print(df) #check data farme
@@ -139,7 +139,7 @@ def user_stats(df):
     # Display counts of gender
     count_gender = df['Gender'].value_counts()
     print('Count of user gender\n{}\n'.format(count_gender))
-    
+
 
     # Display earliest, most recent, and most common year of birth
     earliest_year_birth = df['Birth Year'].min()
