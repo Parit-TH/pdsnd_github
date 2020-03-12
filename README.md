@@ -6,6 +6,7 @@ BikeShare_2
 
 ### Description
 This Project is program for filter and analyze statistic US bikeshare system
+for three city Chicago, New York City and Washington.
 
 ### Files used
 chicago.csv
